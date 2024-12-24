@@ -1,0 +1,6 @@
+get init #pour creer un git 
+
+push the code git push -u origin main
+
+ajoutez le dépôt distant
+    git remote add origin
