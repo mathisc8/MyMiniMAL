@@ -8,30 +8,28 @@
 
   <!-- Intégration de Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script>
     // Remplacez par votre URL Supabase et votre clé publique (anon key)
-    const supabaseUrl = "https://kzdrlgwukhxkkyaahhcq.supabase.co"; // Trouvez cette URL dans Supabase > Settings > API
-    const supabaseKey =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6ZHJsZ3d1a2h4a2t5YWFoaGNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzUwNTg3NDMsImV4cCI6MjA1MDYzNDc0M30.71NDJy8K3ASeVNz6_AYbHLzJ0M7QdTP0CWeJi-OEux0"; // Trouvez cette clé dans Supabase > Settings > API
+    const supabaseUrl = 'https://kzdrlgwukhxkkyaahhcq.supabase.co'; // Trouvez cette URL dans Supabase > Settings > API
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6ZHJsZ3d1a2h4a2t5YWFoaGNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzUwNTg3NDMsImV4cCI6MjA1MDYzNDc0M30.71NDJy8K3ASeVNz6_AYbHLzJ0M7QdTP0CWeJi-OEux0'; // Trouvez cette clé dans Supabase > Settings > API
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
   </script>
 
+
   <style>
     /****************************************************
-   *                  BASE / RESET                    *
-   ****************************************************/
-    *,
-    *::before,
-    *::after {
+     *                  BASE / RESET                    *
+     ****************************************************/
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     html,
@@ -46,71 +44,90 @@
 
     :root {
       /* Palette de couleurs harmonieuse et moderne basée sur Material Design */
-      --bg-color: #f5f5f5;
+      --bg-color: #F5F5F5;
+      /* Gris très clair */
       --text-color: #212121;
+      /* Noir foncé */
       --text-secondary: #757575;
-      --card-background: #ffffff;
-      --accent-color: #3f51b5;
-      --accent-hover: #303f9f;
-      --header-bg: #ffffff;
+      /* Gris moyen */
+      --card-background: #FFFFFF;
+      /* Blanc pour les cartes */
+      --accent-color: #3F51B5;
+      /* Bleu Indigo */
+      --accent-hover: #303F9F;
+      /* Bleu Indigo foncé pour le hover */
+      --header-bg: #FFFFFF;
+      /* Blanc pour l'en-tête */
       --header-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       --filter-bg: #ffffff;
+      /* Gris clair pour les filtres */
       --modal-overlay: rgba(0, 0, 0, 0.5);
-      --delete-btn-bg: #d32f2f;
-      --status-en-cours: #388e3c;
-      --status-termine: #d32f2f;
-      --status-pause: #fbc02d;
-      --toast-bg-success: #388e3c;
-      --toast-bg-error: #d32f2f;
-      --toast-bg-warning: #fbc02d;
-      --toast-bg-info: #3f51b5;
-      --toast-color: #ffffff;
-      --input-bg: #ffffff;
-      --input-border: #bdbdbd;
-      --input-focus: #3f51b5;
+      --delete-btn-bg: #D32F2F;
+      /* Rouge pour le bouton supprimer */
+      --status-en-cours: #388E3C;
+      /* Vert pour "En cours" */
+      --status-termine: #D32F2F;
+      /* Rouge vif pour "Terminé" */
+      --status-pause: #FBC02D;
+      /* Jaune/orange pour "En pause" */
+      --toast-bg-success: #388E3C;
+      --toast-bg-error: #D32F2F;
+      --toast-bg-warning: #FBC02D;
+      --toast-bg-info: #3F51B5;
+      --toast-color: #FFFFFF;
+      --input-bg: #FFFFFF;
+      --input-border: #BDBDBD;
+      --input-focus: #3F51B5;
       --card-shadow: rgba(0, 0, 0, 0.1);
       --card-hover-shadow: rgba(0, 0, 0, 0.2);
-      --button-text-color: #ffffff;
+      --button-text-color: #FFFFFF;
       --button-font-weight: 500;
       --button-border-radius: 4px;
-      --tag-bg: #bdbdbd;
+      /* Rayon des boutons réduit */
+      --tag-bg: #BDBDBD;
       --tag-color: #212121;
-      --tag-border: #bdbdbd;
-      --tag-hover-bg: #9e9e9e;
-      --minimal-card-bg: #ffffff;
+      --tag-border: #BDBDBD;
+      --tag-hover-bg: #9E9E9E;
+      --minimal-card-bg: #FFFFFF;
+      /* Fond des cartes en mode minimaliste */
       --select-arrow: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="%23757575" d="M6 9L1.5 4.5h9L6 9z"/></svg>') no-repeat right 10px center;
-      --label-color: #212121;
-      --background-secondary: #f5f5f5;
-      --background-hover: #eee;
-      --form-bg: #ffffff;
     }
 
     body.dark-mode {
       /* Mode sombre */
       --bg-color: #303030;
       --text-color: #ffffff;
-      --text-secondary: #bdbdbd;
+      --text-secondary: #BDBDBD;
       --card-background: #424242;
-      --accent-color: #7986cb;
-      --accent-hover: #5c6bc0;
+      --accent-color: #7986CB;
+      /* Bleu Indigo clair */
+      --accent-hover: #5C6BC0;
       --header-bg: #424242;
       --header-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-      --filter-bg: #616161;
+      --filter-bg: #ffffff;
       --modal-overlay: rgba(0, 0, 0, 0.7);
-      --delete-btn-bg: #e57373;
-      --status-en-cours: #81c784;
-      --status-termine: #e57373;
-      --status-pause: #ffeb3b;
-      --toast-bg-success: #81c784;
-      --toast-bg-error: #e57373;
-      --toast-bg-warning: #ffeb3b;
-      --toast-bg-info: #7986cb;
+      --delete-btn-bg: #E57373;
+      --status-en-cours: #81C784;
+      --status-termine: #E57373;
+      --status-pause: #FFEB3B;
+      --toast-bg-success: #81C784;
+      --toast-bg-error: #E57373;
+      --toast-bg-warning: #FFEB3B;
+      --toast-bg-info: #7986CB;
       --input-bg: #616161;
+      --input-border: #BDBDBD;
+      --input-focus: #7986CB;
       --card-shadow: rgba(255, 255, 255, 0.1);
       --card-hover-shadow: rgba(255, 255, 255, 0.2);
+      --button-text-color: #FFFFFF;
+      --button-font-weight: 500;
+      --button-border-radius: 4px;
       --tag-bg: #757575;
-      --tag-color: #fafafa;
+      --tag-color: #FAFAFA;
+      --tag-border: #BDBDBD;
+      --tag-hover-bg: #9E9E9E;
       --minimal-card-bg: #424242;
+      /* Fond des cartes en mode minimaliste sombre */
       --select-arrow: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="%23BDBDBD" d="M6 9L1.5 4.5h9L6 9z"/></svg>') no-repeat right 10px center;
     }
 
@@ -124,8 +141,8 @@
     }
 
     /****************************************************
-   *                 ANIMATIONS ETC.                  *
-   ****************************************************/
+     *                 ANIMATIONS ETC.                  *
+     ****************************************************/
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -187,7 +204,9 @@
       background: var(--toast-bg-info);
       color: var(--toast-color);
       padding: 0.6rem 1rem;
+      /* Padding ajusté */
       border-radius: 4px;
+      /* Rayon réduit */
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       opacity: 0;
       transform: translateY(20px);
@@ -197,8 +216,10 @@
       align-items: center;
       gap: 0.5rem;
       min-width: 200px;
+      /* Largeur minimale */
       max-width: 300px;
-      font-family: "Montserrat", sans-serif;
+      /* Largeur maximale */
+      font-family: 'Montserrat', sans-serif;
       transition: opacity 0.3s, transform 0.3s;
     }
 
@@ -223,8 +244,8 @@
     }
 
     /****************************************************
-   *                    TOP NAV BAR                   *
-   ****************************************************/
+     *                    TOP NAV BAR                   *
+     ****************************************************/
     .top-nav {
       background: var(--header-bg);
       color: var(--text-color);
@@ -234,7 +255,7 @@
       align-items: center;
       box-shadow: var(--header-shadow);
       transition: background 0.3s ease, color 0.3s ease;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -273,6 +294,7 @@
       font-weight: 700;
       font-size: 1rem;
       color: var(--accent-color);
+      text-decoration: none;
       white-space: nowrap;
     }
 
@@ -285,6 +307,7 @@
       height: 18px;
       cursor: pointer;
       z-index: 1100;
+      /* Pour rester au-dessus */
     }
 
     .hamburger div {
@@ -292,6 +315,7 @@
       height: 3px;
       background-color: var(--text-color);
       border-radius: 2px;
+      /* Ajout pour un style plus doux */
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
@@ -305,6 +329,7 @@
     .nav-right.responsive.active {
       display: flex;
       background: var(--header-bg);
+      /* Couleur de fond cohérente */
       padding: 1rem 0;
     }
 
@@ -334,32 +359,40 @@
       }
     }
 
+
     /* Container pour les filtres et tri */
     .filters-sort-container {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      /* Réduction du gap */
       flex-wrap: wrap;
+      /* Permet le wrap sur petits écrans */
       justify-content: center;
     }
 
     .filters-dropdown select,
     .sort-dropdown select {
       padding: 0.4rem 0.6rem;
+      /* Padding réduit */
       border-radius: var(--button-border-radius);
       font-size: 0.8rem;
+      /* Réduction de la taille */
       border: 1px solid var(--input-border);
       background: var(--filter-bg);
       color: rgb(157, 157, 157);
       cursor: pointer;
       transition: background 0.15s ease, color 0.15s ease;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       appearance: none;
+      /* Supprime l'apparence par défaut */
       background-image: var(--select-arrow);
+      /* Ajoute une flèche personnalisée */
       background-repeat: no-repeat;
       background-position: right 0.6rem center;
       background-size: 12px;
       min-width: 120px;
+      /* Largeur minimale */
     }
 
     .filters-dropdown select:hover,
@@ -378,19 +411,22 @@
       position: relative;
       flex: 1;
       max-width: 200px;
+      /* Réduction de la largeur */
       margin-left: 0.5rem;
     }
 
     .search-container input {
       width: 100%;
       padding: 0.4rem 0.8rem;
+      /* Padding réduit */
       border: 1px solid var(--input-border);
       border-radius: var(--button-border-radius);
       font-size: 0.8rem;
+      /* Réduction de la taille */
       background: rgb(255, 255, 255);
       color: var(--text-color);
       transition: border 0.3s;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     .search-container input:focus {
@@ -409,6 +445,7 @@
       border: 1px solid var(--input-border);
       border-top: none;
       max-height: 150px;
+      /* Réduction de la hauteur */
       overflow-y: auto;
       z-index: 1001;
       list-style: none;
@@ -416,12 +453,14 @@
       margin: 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       font-size: 0.8rem;
+      /* Réduction de la taille */
     }
 
     #suggestions li {
       padding: 0.4rem 0.6rem;
+      /* Padding réduit */
       cursor: pointer;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       transition: background 0.2s;
     }
 
@@ -434,14 +473,18 @@
       display: flex;
       align-items: center;
       gap: 0.3rem;
+      /* Réduction du gap */
       white-space: nowrap;
+      /* Empêche le wrap */
       flex-wrap: wrap;
     }
 
     .top-nav .action-btn {
       padding: 0.3rem 0.6rem;
+      /* Padding réduit */
       border-radius: var(--button-border-radius);
       font-size: 0.8rem;
+      /* Réduction de la taille */
       font-weight: 500;
       border: none;
       cursor: pointer;
@@ -464,8 +507,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    .top-nav .icon-btn,
-    .top-nav .toggle-minimal-view-btn {
+    .top-nav .icon-btn {
       padding: 0.3rem;
       border-radius: var(--button-border-radius);
       color: var(--text-secondary);
@@ -474,6 +516,7 @@
       cursor: pointer;
       transition: all 0.15s ease;
       font-size: 1rem;
+      /* Taille augmentée pour meilleure accessibilité */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -481,7 +524,30 @@
     }
 
     .top-nav .icon-btn:hover,
-    .top-nav .icon-btn:focus,
+    .top-nav .icon-btn:focus {
+      background-color: var(--filter-bg);
+      color: var(--text-color);
+      outline: none;
+    }
+
+    /* Bouton Vue Minimaliste */
+    .top-nav .toggle-minimal-view-btn {
+      padding: 0.3rem 0.6rem;
+      /* Padding réduit */
+      border-radius: var(--button-border-radius);
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-size: 0.8rem;
+      /* Réduction de la taille */
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+
     .top-nav .toggle-minimal-view-btn:hover,
     .top-nav .toggle-minimal-view-btn:focus {
       background-color: var(--filter-bg);
@@ -494,32 +560,30 @@
       display: flex;
       align-items: center;
       gap: 0.3rem;
+      /* Réduction du gap */
       margin-left: 0.5rem;
       white-space: nowrap;
     }
 
-    .import-export-container label,
-    #export-btn {
+    .import-export-container label {
       background-color: var(--accent-color);
       color: var(--button-text-color);
       padding: 0.3rem 0.6rem;
+      /* Padding réduit */
       border-radius: var(--button-border-radius);
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
       font-size: 0.8rem;
+      /* Réduction de la taille */
       font-weight: 500;
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
       white-space: nowrap;
-      border: none;
-      text-decoration: none;
     }
 
     .import-export-container label:hover,
-    .import-export-container label:focus,
-    #export-btn:hover,
-    #export-btn:focus {
+    .import-export-container label:focus {
       background-color: var(--accent-hover);
       transform: translateY(-1px);
       outline: none;
@@ -529,12 +593,38 @@
       display: none;
     }
 
+    #export-btn {
+      background-color: var(--accent-color);
+      color: var(--button-text-color);
+      padding: 0.3rem 0.6rem;
+      /* Padding réduit */
+      border-radius: var(--button-border-radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 0.8rem;
+      /* Réduction de la taille */
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+
+    #export-btn:hover,
+    #export-btn:focus {
+      background-color: var(--accent-hover);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 1024px) {
 
-      .filters-dropdown select,
-      .sort-dropdown select {
+      .top-nav .filters-dropdown select,
+      .top-nav .sort-dropdown select {
         width: 100px;
+        /* Réduction de la largeur */
       }
 
       .nav-left {
@@ -555,23 +645,47 @@
 
       .top-nav .nav-section {
         gap: 0.2rem;
+        /* Réduction du gap */
       }
     }
 
-    /* Container for search suggestions in mobile */
     @media (max-width: 768px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 0.5rem;
+      }
+
+      .nav-right {
+        order: 2;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+      }
+
+      /* suggestion style */
       .suggestions {
-        background: var(--card-background);
-        border: 1px solid var(--input-border);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ccc;
+        border-top: none;
         max-height: 300px;
         overflow-y: auto;
         z-index: 1000;
         display: none;
+        /* Initialement caché */
         list-style: none;
         padding: 0;
         margin: 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        font-size: 0.8rem;
       }
 
       .suggestions li {
@@ -605,6 +719,10 @@
         width: 100%;
       }
 
+      .hamburger {
+        display: flex;
+      }
+
       .nav-right {
         display: none;
         flex-direction: column;
@@ -619,15 +737,18 @@
     @media (max-width: 480px) {
       .top-nav .logo {
         font-size: 0.9rem;
+        /* Taille réduite */
       }
 
       .filters-dropdown select,
       .sort-dropdown select {
         min-width: 80px;
+        /* Réduction de la largeur minimale */
       }
 
       .search-container input {
         font-size: 0.7rem;
+        /* Réduction de la taille */
       }
 
       .top-nav .action-btn,
@@ -638,7 +759,9 @@
       #btn-show-stats,
       #btn-open-modal {
         font-size: 0.7rem;
+        /* Réduction de la taille */
         padding: 0.2rem 0.4rem;
+        /* Padding réduit */
       }
 
       .filters-sort-container {
@@ -665,6 +788,7 @@
 
       .flip-card {
         height: auto;
+        /* Ajustement automatique de la hauteur */
       }
 
       .flip-card-inner {
@@ -674,29 +798,34 @@
       .flip-card-front,
       .flip-card-back {
         padding: 0.5rem;
+        /* Padding réduit */
       }
 
       .cover-image {
         height: 120px;
+        /* Réduction de la hauteur */
       }
 
       .progress-bar-container {
         height: 6px;
+        /* Hauteur réduite */
       }
 
       .chap-btn {
         width: 20px;
+        /* Taille réduite */
         height: 20px;
       }
 
       .chap-label {
         font-size: 0.7rem;
+        /* Taille réduite */
       }
     }
 
     /****************************************************
-   *                 WELCOME SCREEN                   *
-   ****************************************************/
+     *                 WELCOME SCREEN                   *
+     ****************************************************/
     .welcome-screen {
       position: fixed;
       top: 0;
@@ -704,6 +833,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
+      /* Opacité augmentée */
       z-index: 999;
       display: flex;
       align-items: center;
@@ -714,18 +844,22 @@
     .welcome-content {
       background: var(--card-background);
       padding: 2rem;
+      /* Padding réduit */
       border-radius: 8px;
+      /* Rayon réduit */
       max-width: 500px;
+      /* Largeur réduite */
       width: 90%;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       animation: slideDown 0.5s;
       color: var(--text-color);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .welcome-content h1 {
       font-size: 1.8rem;
+      /* Taille réduite */
       margin-bottom: 1rem;
       color: var(--accent-color);
       font-weight: 700;
@@ -735,6 +869,7 @@
       margin-bottom: 1.5rem;
       line-height: 1.6;
       font-size: 0.95rem;
+      /* Taille réduite */
     }
 
     .welcome-actions {
@@ -743,10 +878,12 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+      /* Permet le wrap sur petits écrans */
     }
 
     .welcome-actions label {
       font-size: 0.9rem;
+      /* Taille réduite */
       color: var(--text-color);
       cursor: pointer;
       display: flex;
@@ -758,6 +895,7 @@
 
     .welcome-actions input[type="checkbox"] {
       width: 16px;
+      /* Taille réduite */
       height: 16px;
       cursor: pointer;
       accent-color: var(--accent-color);
@@ -769,11 +907,14 @@
       border: none;
       border-radius: var(--button-border-radius);
       padding: 0.5rem 1.5rem;
+      /* Padding réduit */
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
       font-size: 0.9rem;
+      /* Taille réduite */
       font-weight: 500;
-      font-family: "Montserrat", sans-serif;
+      /* Taille réduite */
+      font-family: 'Montserrat', sans-serif;
     }
 
     .welcome-actions button:hover,
@@ -784,14 +925,17 @@
     }
 
     /****************************************************
-   *                LIST SECTION                       *
-   ****************************************************/
+     *                LIST SECTION                       *
+     ****************************************************/
     #list-section {
       flex: 1;
       padding: 1.5rem;
+      /* Padding réduit */
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      /* Taille minimale ajustée */
       gap: 1.5rem;
+      /* Espacement réduit */
       background: var(--bg-color);
       transition: all 0.3s;
       overflow-y: auto;
@@ -808,22 +952,26 @@
       margin-top: 2rem;
       font-style: italic;
       font-size: 1rem;
+      /* Taille réduite */
     }
 
     /****************************************************
-   *                FLIP CARDS (DRAGGABLE)            *
-   ****************************************************/
+     *                FLIP CARDS (DRAGGABLE)            *
+     ****************************************************/
     .flip-card {
       width: 100%;
       height: 450px;
+      /* Hauteur ajustée pour plus de contenu */
       perspective: 1000px;
       position: relative;
       border-radius: 8px;
+      /* Rayon réduit */
       margin: 0 auto;
       cursor: grab;
       transition: transform 0.3s, box-shadow 0.4s;
       background: var(--card-background);
       box-shadow: 0 4px 10px var(--card-shadow);
+      /* Ombre réduite */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -831,16 +979,20 @@
 
     .flip-card.minimalist {
       height: 320px;
+      /* Hauteur réduite en mode minimaliste */
       background: var(--minimal-card-bg);
     }
 
     .flip-card.minimalist .hidden-in-minimalist {
       display: none;
+      /* Cache complètement l'élément */
     }
 
     .flip-card:hover {
       transform: translateY(-5px);
+      /* Déplacement réduit */
       box-shadow: 0 8px 20px var(--card-hover-shadow);
+      /* Ombre réduite */
     }
 
     .flip-card:active {
@@ -871,39 +1023,42 @@
       display: flex;
       flex-direction: column;
       padding: 0.8rem;
+      /* Padding réduit */
       background: var(--card-background);
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       pointer-events: none;
+      /* Empêche les événements sur la face non active */
     }
 
     .flip-card-front,
     .flip-card-back {
       pointer-events: auto;
+      /* Permet les interactions sur la face active */
     }
 
     .flip-card-front {
+      display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(135deg,
-          rgba(245, 245, 245, 0.95) 60%,
-          rgba(245, 245, 245, 0.85) 100%);
+      /* Équilibre les éléments */
+      background: linear-gradient(135deg, rgba(245, 245, 245, 0.95) 60%, rgba(245, 245, 245, 0.85) 100%);
       height: 100%;
+      /* Assure que la face avant prend toute la hauteur de la carte */
     }
 
     body.dark-mode .flip-card-front {
-      background: linear-gradient(135deg,
-          rgba(66, 66, 66, 0.95) 60%,
-          rgba(66, 66, 66, 0.85) 100%);
+      background: linear-gradient(135deg, rgba(66, 66, 66, 0.95) 60%, rgba(66, 66, 66, 0.85) 100%);
+
     }
 
     .flip-card-back {
       transform: rotateY(180deg);
-      background: linear-gradient(135deg,
-          rgba(66, 66, 66, 0.95) 60%,
-          rgba(66, 66, 66, 0.85) 100%);
+      background: linear-gradient(135deg, rgba(66, 66, 66, 0.95) 60%, rgba(66, 66, 66, 0.85) 100%);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
       padding: 1rem;
-      color: #fafafa;
+      /* Padding réduit */
+      color: #FAFAFA;
     }
 
     /* Bouton Flip (face front/back) */
@@ -914,13 +1069,15 @@
       right: 0.6rem;
       background: var(--accent-color);
       border: none;
-      color: #ffffff;
+      color: #FFFFFF;
       border-radius: 50%;
       cursor: pointer;
       padding: 0.3rem;
       font-size: 0.8rem;
-      transition: background 0.3s, transform 0.2s;
+      /* Taille réduite */
+      transition: background 0.3s, color 0.3s, transform 0.2s;
       width: 25px;
+      /* Taille réduite */
       height: 25px;
       display: flex;
       align-items: center;
@@ -941,36 +1098,42 @@
     /* Face FRONT */
     .front-top {
       margin-bottom: 0.5rem;
+      /* Marge réduite */
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
+      /* Gap réduit */
       flex: 1;
     }
 
     .card-title {
       font-size: 1rem;
+      /* Taille réduite */
       font-weight: 700;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
       color: var(--text-color);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .subinfo-front {
       font-size: 0.7rem;
+      /* Taille réduite */
       color: var(--text-secondary);
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     .cover-image {
       width: 100%;
       height: 150px;
+      /* Hauteur ajustée */
       object-fit: cover;
       border-radius: 4px;
+      /* Rayon réduit */
       margin-bottom: 0.5rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
@@ -985,22 +1148,27 @@
       display: flex;
       align-items: center;
       gap: 0.3rem;
+      /* Gap réduit */
       margin-top: auto;
+      /* Pousse vers le bas */
     }
 
     .fav-container input[type="checkbox"] {
       width: 14px;
+      /* Taille réduite */
       height: 14px;
       cursor: pointer;
       accent-color: var(--accent-color);
+      pointer-events: auto;
     }
 
     .fav-container label {
       font-weight: 500;
       cursor: pointer;
       color: var(--text-color);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.8rem;
+      /* Taille réduite */
       display: flex;
       align-items: center;
       gap: 0.2rem;
@@ -1016,7 +1184,9 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.3rem;
+      /* Gap réduit */
       margin-top: 0.5rem;
+      /* Marge réduite */
     }
 
     .chap-btn {
@@ -1026,10 +1196,12 @@
       cursor: pointer;
       padding: 0.2rem;
       font-size: 0.8rem;
+      /* Taille réduite */
       color: var(--button-text-color);
       font-weight: var(--button-font-weight);
       transition: background 0.3s, transform 0.2s;
       width: 25px;
+      /* Taille réduite */
       height: 25px;
       display: flex;
       align-items: center;
@@ -1047,25 +1219,28 @@
 
     .chap-label {
       font-size: 0.8rem;
+      /* Taille réduite */
       font-weight: 600;
       color: var(--text-color);
       text-align: center;
       flex: 1;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     /* Statut coloré */
     .status-label {
       font-size: 0.7rem;
+      /* Taille réduite */
       border-radius: 4px;
       padding: 0.2rem 0.4rem;
+      /* Padding réduit */
       color: #fff;
       margin-bottom: 1px;
       display: inline-block;
       font-weight: 600;
       align-self: flex-start;
       text-transform: capitalize;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .status-label.en-cours {
@@ -1083,49 +1258,55 @@
     /* Note affichée sur le devant */
     .note-label {
       font-size: 0.7rem;
+      /* Taille réduite */
       font-weight: 600;
       color: var(--status-termine);
       margin-top: 0.2rem;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     /* Face BACK */
     .back-title {
       font-size: 1rem;
+      /* Taille réduite */
       font-weight: 700;
       margin-bottom: 0.5rem;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      color: #fafafa;
-      font-family: "Montserrat", sans-serif;
+      color: #FAFAFA;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .back-info {
       flex: 1;
       font-size: 0.8rem;
+      /* Taille réduite */
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
+      /* Gap réduit */
       line-height: 1.4;
       overflow-y: auto;
-      color: #bdbdbd;
-      font-family: "Roboto", sans-serif;
+      color: #BDBDBD;
+      font-family: 'Roboto', sans-serif;
     }
 
     .stars {
-      color: #ffeb3b;
+      color: #FFEB3B;
       margin-top: 0.2rem;
       font-size: 0.8rem;
+      /* Taille réduite */
     }
 
     .link-section {
       font-size: 0.75rem;
+      /* Taille réduite */
       color: var(--accent-color);
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     .link-section a {
@@ -1143,16 +1324,19 @@
 
     .notes-section {
       font-size: 0.7rem;
+      /* Taille réduite */
       color: var(--text-secondary);
       font-style: italic;
       margin-top: 0.2rem;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     .actions {
       display: flex;
       gap: 0.5rem;
+      /* Gap réduit */
       margin-top: 1rem;
+      /* Marge réduite */
       justify-content: center;
     }
 
@@ -1160,12 +1344,14 @@
       border: none;
       border-radius: var(--button-border-radius);
       padding: 0.3rem 0.6rem;
+      /* Padding réduit */
       cursor: pointer;
       font-size: 0.75rem;
+      /* Taille réduite */
       transition: background 0.3s, transform 0.2s;
       color: var(--button-text-color);
       font-weight: var(--button-font-weight);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       display: inline-flex;
       align-items: center;
       gap: 0.2rem;
@@ -1174,12 +1360,13 @@
     }
 
     .edit-btn {
-      background: #388e3c;
+      background: #388E3C;
+      /* Vert pour l'édition */
     }
 
     .edit-btn:hover,
     .edit-btn:focus {
-      background: #2e7d32;
+      background: #2E7D32;
       transform: translateY(-1px);
       outline: none;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -1226,6 +1413,7 @@
       box-shadow: 0 2px 4px rgba(255, 75, 75, 0.2);
     }
 
+    /* Animation pour l'icône */
     .delete-btn span {
       transition: transform 0.2s ease;
     }
@@ -1234,6 +1422,7 @@
       transform: scale(1.1);
     }
 
+    /* Style pour l'état disabled */
     .delete-btn:disabled {
       background: linear-gradient(135deg, #cccccc 0%, #dddddd 100%);
       cursor: not-allowed;
@@ -1244,11 +1433,13 @@
       display: none;
     }
 
+    /* État de focus pour l'accessibilité */
     .delete-btn:focus-visible {
       outline: 2px solid #ff4b4b;
       outline-offset: 2px;
     }
 
+    /* Version sombre */
     @media (prefers-color-scheme: dark) {
       .delete-btn {
         background: linear-gradient(135deg, #ff3b3b 0%, #ff5b5b 100%);
@@ -1259,6 +1450,7 @@
       }
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
       .delete-btn {
         padding: 0.625rem 1rem;
@@ -1271,9 +1463,13 @@
       width: 100%;
       background: var(--filter-bg);
       height: 8px;
+      /* Hauteur réduite */
       border-radius: 4px;
+      /* Rayon réduit */
       overflow: hidden;
-      margin: 0.3rem 0.8rem;
+      margin-bottom: 0.8rem;
+      /* Marge réduite */
+      margin-top: 0.3rem;
     }
 
     .progress-bar {
@@ -1283,9 +1479,10 @@
       transition: width 0.3s;
     }
 
-    /* Notes personnelles */
+    /* Ajout d'une section de notes sur le devant */
     .front-notes {
       font-size: 0.7rem;
+      /* Taille réduite */
       color: var(--text-secondary);
       margin-top: 0.3rem;
       overflow: hidden;
@@ -1295,11 +1492,9 @@
     }
 
     /****************************************************
-   *                MODALE ITEM (AJOUT / EDIT)       *
-   ****************************************************/
-    .modal,
-    .modal-cat,
-    .modal-stats {
+     *                MODALE ITEM (AJOUT / EDIT)       *
+     ****************************************************/
+    .modal {
       position: fixed;
       top: 0;
       left: 0;
@@ -1313,130 +1508,148 @@
       animation: fadeIn 0.5s;
       overflow: auto;
       padding: 1rem;
+      /* Ajout de padding pour petits écrans */
     }
 
-    .modal-overlay,
-    .modal-cat-overlay,
-    .modal-stats-overlay {
+    .modal-overlay {
       position: absolute;
       width: 100%;
       height: 100%;
     }
 
-    .modal-content,
-    .modal-cat-content,
-    .modal-stats-content {
+    .modal-content {
       position: relative;
       background: var(--card-background);
       border-radius: 8px;
+      /* Rayon réduit */
       padding: 1rem;
+      /* Padding réduit */
       max-width: 600px;
+      /* Largeur réduite */
       width: 100%;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      /* Gap réduit */
       color: var(--text-color);
       animation: slideDown 0.5s;
       max-height: 90vh;
       overflow-y: auto;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    .close-modal,
-    #close-cat-modal,
-    #close-stats-modal {
+    .close-modal {
       position: absolute;
       top: 0.6rem;
       right: 0.6rem;
       font-size: 1.2rem;
+      /* Taille réduite */
       cursor: pointer;
       color: var(--text-secondary);
       transition: color 0.3s;
     }
 
     .close-modal:hover,
-    .close-modal:focus,
-    #close-cat-modal:hover,
-    #close-cat-modal:focus,
-    #close-stats-modal:hover,
-    #close-stats-modal:focus {
+    .close-modal:focus {
       color: var(--text-color);
       outline: none;
     }
 
-    .modal-content h2,
-    .modal-cat-content h2,
-    .modal-stats-content h2 {
+    .modal-content h2 {
       font-size: 1.3rem;
+      /* Taille réduite */
       margin-bottom: 0.8rem;
       color: var(--accent-color);
       text-align: center;
       font-weight: 700;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    /* Formulaire Ajouter/Modifier un élément */
+    /* Nouveau layout pour le formulaire "Ajouter/Modifier un élément" */
     #item-form {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
+      /* Grille flexible sur 12 colonnes */
       gap: 1.5rem;
+      /* Espacement généreux entre les éléments */
       padding: 2rem;
-      background-color: var(--form-bg, var(--card-background));
+      /* Padding interne pour respirer */
+      background-color: var(--form-bg);
       border-radius: 12px;
+      /* Contours arrondis pour modernité */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      font-family: "Roboto", sans-serif;
+      /* Ombre subtile */
+      font-family: 'Roboto', sans-serif;
     }
 
+    /* Champs occupant une pleine largeur */
     .form-group-full {
       grid-column: span 12;
+      /* Occupe toute la largeur */
+
+
+
     }
 
+    /* Gestion des colonnes pour différents éléments */
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      /* Espacement interne */
       grid-column: span 6;
+      /* Par défaut, chaque champ occupe 50% */
     }
 
     .form-group-inline {
       display: flex;
       align-items: center;
+      /* Alignement vertical des éléments */
       gap: 1rem;
+      /* Espacement horizontal entre les éléments */
       grid-column: span 12;
+      /* Étale sur toute la largeur */
     }
 
     .form-group-inline label {
       font-size: 1rem;
       font-weight: 500;
       color: var(--label-color);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       white-space: nowrap;
+      /* Empêche le saut de ligne pour le label */
     }
 
     .form-group-inline input[type="checkbox"] {
       transform: scale(1.2);
+      /* Augmente la taille de la case à cocher */
       cursor: pointer;
+      /* Ajoute un pointeur pour indiquer la cliquabilité */
     }
 
+    /* Labels */
     .form-group label {
       font-size: 1rem;
+      /* Taille lisible et moderne */
       font-weight: 500;
       color: var(--label-color);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
+    /* Champs de saisie */
     .form-group input,
     .form-group select,
     .form-group textarea {
       padding: 0.8rem 1rem;
       border: 1px solid var(--input-border);
       border-radius: 8px;
+      /* Forme plus douce */
       font-size: 1rem;
       background-color: var(--input-bg);
       color: var(--text-color);
-      transition: border 0.3s;
-      font-family: "Roboto", sans-serif;
+      transition: all 0.3s ease;
+      font-family: 'Roboto', sans-serif;
     }
 
     .form-group input:focus,
@@ -1444,35 +1657,42 @@
     .form-group textarea:focus {
       border-color: var(--input-focus);
       box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+      /* Glow subtil */
       outline: none;
     }
 
+    /* Alignement et espacement pour les labels optionnels */
     .form-group label::after {
-      content: attr(data-required);
       font-size: 0.9rem;
       font-weight: 400;
-      color: var(--text-secondary);
+      color: var(--text-secondary-color);
       margin-left: 0.2rem;
       font-style: italic;
     }
+
 
     /* Champs de dates */
     .date-group {
       display: flex;
       gap: 1rem;
+      /* Espacement cohérent entre les champs */
       grid-column: span 12;
       align-items: flex-start;
+      /* Alignement parfait des dates */
     }
 
     .date-group .form-group {
       flex: 1;
+      /* Permet un partage équitable de l'espace */
     }
 
     /* Notes personnelles */
     #item-notes {
       grid-column: span 12;
+      /* Étale les notes sur toute la largeur */
       resize: vertical;
       min-height: 100px;
+      /* Taille par défaut augmentée */
       max-height: 200px;
       background-color: var(--input-bg);
       border: 1px solid var(--input-border);
@@ -1480,7 +1700,7 @@
       padding: 0.8rem;
       font-size: 1rem;
       color: var(--text-color);
-      transition: border 0.3s;
+      transition: all 0.3s ease;
     }
 
     #item-notes:focus {
@@ -1494,6 +1714,7 @@
       justify-content: flex-end;
       gap: 1rem;
       margin-top: 1.5rem;
+      /* Espacement suffisant au-dessus */
     }
 
     #save-btn,
@@ -1518,13 +1739,13 @@
     }
 
     #cancel-btn {
-      background-color: #6c757d;
+      background-color: #6C757D;
       color: #fff;
       border: none;
     }
 
     #cancel-btn:hover {
-      background-color: #5a6268;
+      background-color: #5A6268;
       transform: translateY(-2px);
     }
 
@@ -1577,23 +1798,82 @@
       }
     }
 
+
     /****************************************************
-   *                MODALE CATEGORIES                   *
-   ****************************************************/
-    /* Styles similaires à .modal, donc déjà inclus */
+     *                MODALE CATEGORIES                   *
+     ****************************************************/
+    .modal-cat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--modal-overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1500;
+      animation: fadeIn 0.5s;
+      overflow: auto;
+      padding: 1rem;
+      /* Ajout de padding pour petits écrans */
+    }
+
+    .modal-cat-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
 
     .modal-cat-content {
+      position: relative;
+      background: var(--card-background);
+      border-radius: 8px;
+      /* Rayon réduit */
+      padding: 1rem;
+      /* Padding réduit */
       max-width: 500px;
+      /* Largeur réduite */
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
       gap: 0.8rem;
+      /* Gap réduit */
+      color: var(--text-color);
+      animation: slideDown 0.5s;
+      max-height: 90vh;
+      overflow-y: auto;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    #close-cat-modal {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      font-size: 1.2rem;
+      /* Taille réduite */
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: color 0.3s;
+    }
+
+    #close-cat-modal:hover,
+    #close-cat-modal:focus {
+      color: var(--text-color);
+      outline: none;
     }
 
     #cat-list {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
       margin-bottom: 0.8rem;
+      /* Marge réduite */
       max-height: 150px;
+      /* Hauteur réduite */
       overflow-y: auto;
       font-size: 0.8rem;
+      /* Taille réduite */
     }
 
     #cat-list li {
@@ -1601,13 +1881,16 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.4rem;
+      /* Marge réduite */
       border: 1px solid var(--input-border);
       border-radius: 4px;
+      /* Rayon réduit */
       padding: 0.3rem 0.6rem;
+      /* Padding réduit */
       background: var(--input-bg);
       color: var(--text-color);
       transition: background 0.3s;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     #cat-list li:hover {
@@ -1616,6 +1899,7 @@
 
     #cat-list li span {
       font-size: 0.9rem;
+      /* Taille réduite */
       font-weight: 500;
     }
 
@@ -1624,11 +1908,14 @@
       border: none;
       color: #fff;
       border-radius: 4px;
+      /* Rayon réduit */
       cursor: pointer;
       padding: 0.2rem 0.4rem;
+      /* Padding réduit */
       font-size: 0.7rem;
+      /* Taille réduite */
       transition: background 0.3s, transform 0.2s;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1636,7 +1923,7 @@
 
     .del-cat-btn:hover,
     .del-cat-btn:focus {
-      background: #d32f2f;
+      background: #D32F2F;
       transform: translateY(-1px);
       outline: none;
     }
@@ -1644,19 +1931,24 @@
     .cat-actions {
       display: flex;
       gap: 0.5rem;
+      /* Gap réduit */
       margin-top: 0.8rem;
+      /* Marge réduite */
     }
 
     .cat-actions input[type="text"] {
       flex: 1;
       padding: 0.3rem 0.6rem;
+      /* Padding réduit */
       border: 1px solid var(--input-border);
       border-radius: 4px;
+      /* Rayon réduit */
       transition: border 0.3s;
       background: var(--input-bg);
       color: var(--text-color);
       font-size: 0.8rem;
-      font-family: "Roboto", sans-serif;
+      /* Taille réduite */
+      font-family: 'Roboto', sans-serif;
     }
 
     .cat-actions input[type="text"]:focus {
@@ -1670,11 +1962,13 @@
       border: none;
       border-radius: var(--button-border-radius);
       padding: 0.3rem 0.6rem;
+      /* Padding réduit */
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
       font-size: 0.8rem;
+      /* Taille réduite */
       font-weight: var(--button-font-weight);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       display: inline-flex;
       align-items: center;
       gap: 0.2rem;
@@ -1689,12 +1983,32 @@
     }
 
     /* Modal Statistics */
+    .modal-stats {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      display: grid;
+      place-items: center;
+      z-index: 1600;
+      opacity: 0;
+      animation: modalFadeIn 0.3s ease forwards;
+      padding: clamp(1rem, 5vw, 2rem);
+    }
+
+    .modal-stats-overlay {
+      position: absolute;
+      inset: 0;
+    }
+
     .modal-stats-content {
+      position: relative;
       background: var(--card-background, #fff);
       border-radius: 16px;
       padding: clamp(1.5rem, 3vw, 2rem);
       width: min(500px, 100%);
-      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2),
+      box-shadow:
+        0 10px 30px -5px rgba(0, 0, 0, 0.2),
         0 2px 8px -3px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
@@ -1733,6 +2047,9 @@
     }
 
     #close-stats-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
       width: 32px;
       height: 32px;
       display: grid;
@@ -1807,7 +2124,7 @@
     }
 
     .stats-bar::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
@@ -1862,26 +2179,37 @@
       }
     }
 
+
     /****************************************************
-   *              BOUTON Lien Hypertexte               *
-   ****************************************************/
+     *              IMPORT / EXPORT DES DONNÉES         *
+     ****************************************************/
+    /* Styles déjà inclus dans la section des contrôles */
+
+    /****************************************************
+     *              BOUTON Lien Hypertexte               *
+     ****************************************************/
+    /* Styles pour le bouton de lien sur la face avant des cartes */
     .link-button {
       margin-top: auto;
+      /* Pousse le bouton vers le bas de la carte */
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 0.3rem 0.6rem;
+      /* Padding réduit */
       background: var(--accent-color);
       color: var(--button-text-color);
       border: none;
       border-radius: var(--button-border-radius);
       text-align: center;
       font-size: 0.8rem;
+      /* Taille réduite */
       cursor: pointer;
       transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
       text-decoration: none;
+      /* Enlever le soulignement */
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: var(--button-font-weight);
       gap: 0.2rem;
       white-space: nowrap;
@@ -1896,8 +2224,8 @@
     }
 
     /****************************************************
-   *                ACCESSIBILITY                      *
-   ****************************************************/
+     *                ACCESSIBILITY                      *
+     ****************************************************/
     /* Focus outline pour les éléments interactifs */
     button:focus,
     .filter-btn:focus,
@@ -1920,21 +2248,28 @@
     #cat-input:focus,
     .add-cat-btn:focus {
       outline: 2px solid var(--input-focus);
+      /* Épaisseur réduite */
       outline-offset: 2px;
     }
 
     .autocomplete {
       position: absolute;
+      /* Place la liste en position absolue */
       top: 100%;
+      /* Place en bas de l'élément parent (l'input) */
       left: 0;
+      /* Aligne la liste avec le bord gauche de l'input */
       width: 100%;
-      background: var(--card-background);
+      /* Correspond à la largeur de l'input */
+      background: white;
       border: 1px solid #ccc;
       max-height: 300px;
       overflow-y: auto;
       z-index: 1000;
+      /* Assure que la liste apparaît au-dessus d'autres éléments */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       display: none;
+      /* Masque la liste par défaut */
     }
 
     .autocomplete-item {
@@ -1960,6 +2295,7 @@
 </head>
 
 <body>
+
   <!-- NAV -->
   <nav class="top-nav" role="navigation" aria-label="Navigation principale">
     <div class="nav-left">
@@ -2002,35 +2338,29 @@
 
     <div class="nav-right">
       <div class="nav-section">
-        <button class="icon-btn" id="btn-manage-cats" title="Gérer les catégories">
-          ≡
-        </button>
+        <button class="icon-btn" id="btn-manage-cats" title="Gérer les catégories">≡</button>
 
-        <button class="icon-btn" id="toggle-theme-btn" title="Activer/Désactiver le Dark Mode">
-          🌙
-        </button>
+        <button class="icon-btn" id="toggle-theme-btn" title="Activer/Désactiver le Dark Mode">🌙</button>
         <!-- Bouton Vue Minimaliste -->
         <button class="toggle-minimal-view-btn" id="toggle-minimal-view-btn" aria-label="Basculer en vue minimaliste">
           🗂️ Minimaliste
         </button>
-        <button class="action-btn primary-btn" id="btn-open-modal" aria-label="Ajouter un élément">
-          + Ajouter
-        </button>
-        <button class="action-btn secondary-btn" id="btn-show-stats" aria-label="Afficher les statistiques">
-          📊 Stats
-        </button>
+        <button class="action-btn primary-btn" id="btn-open-modal" aria-label="Ajouter un élément">+ Ajouter</button>
+        <button class="action-btn secondary-btn" id="btn-show-stats" aria-label="Afficher les statistiques">📊
+          Stats</button>
         <!-- Import/Export intégré -->
         <div class="import-export-container">
-          <button id="export-btn" aria-label="Exporter les données en JSON">
-            📤 Exporter
-          </button>
+          <button id="export-btn" aria-label="Exporter les données en JSON">📤 Exporter</button>
           <label for="import-file" class="action-btn secondary-btn"
             aria-label="Importer les données depuis un fichier JSON">📥 Importer</label>
           <input type="file" id="import-file" accept=".json" aria-hidden="true" />
         </div>
         <a href="login_local.html" class="icon-btn" aria-label="Se connecter">🔒 Login</a>
+
       </div>
     </div>
+
+
   </nav>
 
   <!-- ÉCRAN DE BIENVENUE -->
@@ -2039,14 +2369,10 @@
     <div class="welcome-content slide-down">
       <h1 id="welcome-title">Bienvenue sur MyMiniMAL++</h1>
       <p>
-        Organisez vos œuvres avec des outils intuitifs : cartes « flip »,
-        glisser-déposer,<br />
-        gestion des chapitres (+/-1), personnalisation de la couverture,
-        favoris, notes,<br />
-        tri avancé, statistiques détaillées, mode sombre, export/import au
-        format JSON, et bien plus encore !<br />
-        <em>Dernières nouveautés : gestion des dates, tags personnalisés et tri
-          par mise à jour !</em>
+        Organisez vos œuvres avec des outils intuitifs : cartes « flip », glisser-déposer,<br />
+        gestion des chapitres (+/-1), personnalisation de la couverture, favoris, notes,<br />
+        tri avancé, statistiques détaillées, mode sombre, export/import au format JSON, et bien plus encore !<br />
+        <em>Dernières nouveautés : gestion des dates, tags personnalisés et tri par mise à jour !</em>
       </p>
       <div class="welcome-actions">
         <label for="dont-show-again">
@@ -2066,9 +2392,7 @@
   <div id="item-modal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="modal-title" tabindex="-1">
     <div class="modal-overlay" id="modal-overlay"></div>
     <div class="modal-content">
-      <button class="close-modal" id="close-modal" aria-label="Fermer la fenêtre">
-        &times;
-      </button>
+      <button class="close-modal" id="close-modal" aria-label="Fermer la fenêtre">&times;</button>
       <h2 id="modal-title">Ajouter un élément</h2>
 
       <form id="item-form">
@@ -2081,11 +2405,12 @@
         </div>
 
         <!-- Titre -->
-        <div class="form-group" style="position: relative">
+        <div class="form-group" style="position: relative;">
           <label for="item-title">Titre *</label>
           <input type="text" id="item-title" required placeholder="Ex: One Piece" aria-required="true" />
           <div id="manga-autocomplete" class="autocomplete"></div>
         </div>
+
 
         <!-- Note /10 -->
         <div class="form-group">
@@ -2131,14 +2456,13 @@
         <!-- Couverture -->
         <div class="form-group">
           <label for="item-cover">Couverture (URL) (facultatif)</label>
-          <div style="display: flex; gap: 0.3rem; flex-wrap: wrap">
+          <div style="display: flex; gap: 0.3rem; flex-wrap: wrap;">
             <input type="url" id="item-cover" placeholder="https://.../image.jpg" aria-describedby="cover-help"
-              style="flex: 1" />
+              style="flex: 1;" />
             <button type="button" id="find-cover-btn">🔍 Image</button>
           </div>
           <img id="cover-preview" class="cover-preview" alt="Aperçu de la couverture" />
-          <small id="cover-help">Assurez-vous que l'URL est valide et pointe vers une
-            image.</small>
+          <small id="cover-help">Assurez-vous que l'URL est valide et pointe vers une image.</small>
         </div>
 
         <!-- Dates -->
@@ -2161,12 +2485,7 @@
           <input type="text" id="item-tags" placeholder="action, comédie, etc." />
         </div>
         <!-- Favori -->
-        <div class="form-group" style="
-              display: flex;
-              align-items: center;
-              gap: 0.3rem;
-              justify-content: center;
-            ">
+        <div class="form-group" style="display:flex;align-items:center;gap:0.3rem;justify-content: center;">
           <input type="checkbox" id="item-fav" />
           <label for="item-fav">Favori</label>
         </div>
@@ -2175,6 +2494,8 @@
           <button type="submit" id="save-btn">Enregistrer</button>
           <button type="button" id="cancel-btn">Annuler</button>
         </div>
+
+
       </form>
     </div>
   </div>
@@ -2185,16 +2506,12 @@
     tabindex="-1">
     <div class="modal-cat-overlay" id="cat-modal-overlay"></div>
     <div class="modal-cat-content">
-      <button id="close-cat-modal" class="close-modal" aria-label="Fermer la fenêtre">
-        &times;
-      </button>
+      <button id="close-cat-modal" class="close-modal" aria-label="Fermer la fenêtre">&times;</button>
       <h2 id="cat-modal-title">Gérer les Catégories</h2>
       <ul id="cat-list"></ul>
       <div class="cat-actions">
         <input type="text" id="cat-input" placeholder="Nouvelle catégorie..." aria-label="Nouvelle catégorie" />
-        <button class="add-cat-btn" id="add-cat-btn" aria-label="Ajouter une nouvelle catégorie">
-          + Ajouter
-        </button>
+        <button class="add-cat-btn" id="add-cat-btn" aria-label="Ajouter une nouvelle catégorie">+ Ajouter</button>
       </div>
     </div>
   </div>
@@ -2206,10 +2523,9 @@
     tabindex="-1">
     <div class="modal-stats-overlay" id="stats-modal-overlay"></div>
     <div class="modal-stats-content">
-      <button id="close-stats-modal" class="close-modal" aria-label="Fermer les statistiques">
-        &times;
-      </button>
+      <button id="close-stats-modal" class="close-modal" aria-label="Fermer les statistiques">&times;</button>
       <h2 id="stats-modal-title" class="stats-title">Statistiques</h2>
+
 
       <div class="stats-summary">
         <p>Total d'éléments : <span id="stats-total"></span></p>
@@ -2225,24 +2541,20 @@
         <div class="stats-subtitle">Par Catégorie</div>
         <!-- Remplacer par un canvas -->
         <canvas id="stats-chart-cat"></canvas>
-        <p class="chart-description">
-          Répartition des éléments par catégorie.
-        </p>
+        <p class="chart-description">Répartition des éléments par catégorie.</p>
       </div>
 
       <div>
         <div class="stats-subtitle">Par Statut</div>
         <!-- Remplacer par un canvas -->
         <canvas id="stats-chart-status"></canvas>
-        <p class="chart-description">
-          Distribution des éléments selon leur statut.
-        </p>
+        <p class="chart-description">Distribution des éléments selon leur statut.</p>
       </div>
 
       <!-- Item le plus avancé -->
       <div>
         <div class="stats-subtitle">Avancement max</div>
-        <p id="stats-most-advanced" style="text-align: center; font-style: italic"></p>
+        <p id="stats-most-advanced" style="text-align:center; font-style:italic;"></p>
       </div>
 
       <div>
@@ -2255,12 +2567,15 @@
   </div>
   <!-- /MODALE STATS -->
 
+
   <!-- TOAST NOTIFICATIONS -->
   <div id="toast-container"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
+
   <!-- SCRIPT (TOUT EN 1 FICHIER) -->
   <script>
+
     /****************************************************
      *                LOCAL STORAGE KEYS                *
      ****************************************************/
@@ -2272,8 +2587,7 @@
     /****************************************************
      *       WELCOME SCREEN (Ne plus afficher)          *
      ****************************************************/
-    const shouldShowWelcome = () =>
-      localStorage.getItem("skipWelcome") !== "true";
+    const shouldShowWelcome = () => localStorage.getItem("skipWelcome") !== "true";
     const setSkipWelcome = () => localStorage.setItem("skipWelcome", "true");
 
     /****************************************************
@@ -2307,15 +2621,12 @@
         showToast("Vous devez conserver au moins une catégorie.", "error");
         return;
       }
-      const hasItems = myList.some((item) => item.type === cat);
+      const hasItems = myList.some(item => item.type === cat);
       if (hasItems) {
-        showToast(
-          `Impossible de supprimer "${cat}" car des éléments y sont associés.`,
-          "error"
-        );
+        showToast(`Impossible de supprimer "${cat}" car des éléments y sont associés.`, "error");
         return;
       }
-      categories = categories.filter((c) => c !== cat);
+      categories = categories.filter(c => c !== cat);
       saveCategories();
       showToast(`Catégorie "${cat}" supprimée.`, "success");
     };
@@ -2333,16 +2644,9 @@
     };
     const addItem = (item) => {
       // Vérification des doublons avant d'ajouter
-      const duplicate = myList.find(
-        (it) =>
-          it.title.toLowerCase() === item.title.toLowerCase() &&
-          it.type === item.type
-      );
+      const duplicate = myList.find(it => it.title.toLowerCase() === item.title.toLowerCase() && it.type === item.type);
       if (duplicate) {
-        showToast(
-          `L'élément "${item.title}" existe déjà dans la catégorie "${item.type}".`,
-          "warning"
-        );
+        showToast(`L'élément "${item.title}" existe déjà dans la catégorie "${item.type}".`, "warning");
         return;
       }
       item.updatedAt = new Date().toISOString(); // Enregistre la date de création/mise à jour
@@ -2351,7 +2655,7 @@
       showToast(`Élément "${item.title}" ajouté.`, "success");
     };
     const updateItem = (updated) => {
-      const idx = myList.findIndex((it) => it.id === updated.id);
+      const idx = myList.findIndex(it => it.id === updated.id);
       if (idx !== -1) {
         updated.updatedAt = new Date().toISOString();
         myList[idx] = updated;
@@ -2360,9 +2664,9 @@
       }
     };
     const deleteItem = (id) => {
-      const item = myList.find((it) => it.id === id);
+      const item = myList.find(it => it.id === id);
       if (item) {
-        myList = myList.filter((it) => it.id !== id);
+        myList = myList.filter(it => it.id !== id);
         saveItems();
         showToast(`Élément "${item.title}" supprimé.`, "success");
       }
@@ -2372,10 +2676,7 @@
      *          IMPORT / EXPORT DES DONNÉES             *
      ****************************************************/
     const exportDataToJSON = () => {
-      const blob = new Blob(
-        [JSON.stringify({ myList, categories }, null, 2)],
-        { type: "application/json" }
-      );
+      const blob = new Blob([JSON.stringify({ myList, categories }, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -2393,7 +2694,7 @@
           if (obj.myList && obj.categories) {
             let newCats = 0;
             // 1. Fusionner les catégories
-            obj.categories.forEach((cat) => {
+            obj.categories.forEach(cat => {
               if (!categories.includes(cat)) {
                 categories.push(cat);
                 newCats++;
@@ -2404,10 +2705,8 @@
             let newItems = 0;
             let updatedItems = 0;
             // 2. Fusionner les items
-            obj.myList.forEach((importedItem) => {
-              const existingItemIndex = myList.findIndex(
-                (it) => it.id === importedItem.id
-              );
+            obj.myList.forEach(importedItem => {
+              const existingItemIndex = myList.findIndex(it => it.id === importedItem.id);
               if (existingItemIndex === -1) {
                 // Si l'item n'existe pas, l'ajouter
                 myList.push(importedItem);
@@ -2417,7 +2716,7 @@
                 myList[existingItemIndex] = {
                   ...myList[existingItemIndex],
                   ...importedItem,
-                  updatedAt: new Date().toISOString(),
+                  updatedAt: new Date().toISOString()
                 };
                 updatedItems++;
               }
@@ -2428,15 +2727,9 @@
             populateFilterDropdown();
             renderList(getCurrentFilter());
             refreshItemTypeSelect();
-            showToast(
-              `Importation réussie !\nNouvelles catégories ajoutées : ${newCats}\nNouveaux items ajoutés : ${newItems}\nItems mis à jour : ${updatedItems}`,
-              "success"
-            );
+            showToast(`Importation réussie !\nNouvelles catégories ajoutées : ${newCats}\nNouveaux items ajoutés : ${newItems}\nItems mis à jour : ${updatedItems}`, "success");
           } else {
-            showToast(
-              "Fichier invalide (il manque myList ou categories).",
-              "error"
-            );
+            showToast("Fichier invalide (il manque myList ou categories).", "error");
           }
         } catch (error) {
           showToast("Erreur de parsing JSON : " + error, "error");
@@ -2450,11 +2743,11 @@
      ****************************************************/
     const filterByType = (type) => {
       if (type === "all") return [...myList];
-      return myList.filter((it) => it.type === type);
+      return myList.filter(it => it.type === type);
     };
     const filterBySearch = (query) => {
       const q = query.toLowerCase();
-      return myList.filter((it) => it.title.toLowerCase().includes(q));
+      return myList.filter(it => it.title.toLowerCase().includes(q));
     };
     const calculateProgress = (item) => {
       if (item.total > 0) {
@@ -2480,13 +2773,9 @@
         case "fav-first":
           return items.sort((a, b) => (b.isFav ? 1 : 0) - (a.isFav ? 1 : 0));
         case "progress-desc":
-          return items.sort(
-            (a, b) => calculateProgress(b) - calculateProgress(a)
-          );
+          return items.sort((a, b) => calculateProgress(b) - calculateProgress(a));
         case "recently-updated":
-          return items.sort(
-            (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
-          );
+          return items.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
         default:
           return items; // default -> ordre d'insertion
       }
@@ -2503,37 +2792,24 @@
     const toggleTheme = () => {
       const isDarkNow = document.body.classList.toggle("dark-mode");
       localStorage.setItem(STORAGE_KEY_THEME, isDarkNow ? "true" : "false");
-      toggleThemeBtn.textContent = isDarkNow
-        ? "🌞 Light Mode"
-        : "🌙 Dark Mode";
+      toggleThemeBtn.textContent = isDarkNow ? "🌞 Light Mode" : "🌙 Dark Mode";
       showToast(`Mode ${isDarkNow ? "sombre" : "clair"} activé.`, "info");
     };
 
     /****************************************************
      *       VUE MINIMALISTE ET PLEIN ÉCRAN IMAGES       *
      ****************************************************/
-    let isMinimalView =
-      localStorage.getItem(STORAGE_KEY_MINIMAL_VIEW) === "true";
+    let isMinimalView = localStorage.getItem(STORAGE_KEY_MINIMAL_VIEW) === "true";
 
     const applyViewSettings = () => {
       if (isMinimalView) {
-        document
-          .getElementById("list-section")
-          .classList.add("minimalist-view");
-        document
-          .querySelectorAll(".flip-card")
-          .forEach((card) => card.classList.add("minimalist"));
-        document.getElementById("toggle-minimal-view-btn").textContent =
-          "🗂️ Standard";
+        document.getElementById("list-section").classList.add("minimalist-view");
+        document.querySelectorAll(".flip-card").forEach(card => card.classList.add("minimalist"));
+        document.getElementById("toggle-minimal-view-btn").textContent = "🗂️ Standard";
       } else {
-        document
-          .getElementById("list-section")
-          .classList.remove("minimalist-view");
-        document
-          .querySelectorAll(".flip-card")
-          .forEach((card) => card.classList.remove("minimalist"));
-        document.getElementById("toggle-minimal-view-btn").textContent =
-          "🗂️ Minimaliste";
+        document.getElementById("list-section").classList.remove("minimalist-view");
+        document.querySelectorAll(".flip-card").forEach(card => card.classList.remove("minimalist"));
+        document.getElementById("toggle-minimal-view-btn").textContent = "🗂️ Minimaliste";
       }
     };
 
@@ -2541,10 +2817,7 @@
       isMinimalView = !isMinimalView;
       localStorage.setItem(STORAGE_KEY_MINIMAL_VIEW, isMinimalView);
       applyViewSettings();
-      showToast(
-        `Vue ${isMinimalView ? "minimaliste" : "standard"} activée.`,
-        "info"
-      );
+      showToast(`Vue ${isMinimalView ? "minimaliste" : "standard"} activée.`, "info");
     };
 
     /****************************************************
@@ -2600,9 +2873,7 @@
     const statsChartStatus = document.getElementById("stats-chart-status");
     const statsMostAdvanced = document.getElementById("stats-most-advanced");
     const statsChartTags = document.getElementById("stats-chart-tags");
-    const btnRemoveDuplicates = document.getElementById(
-      "btn-remove-duplicates"
-    ); // Bouton pour supprimer les doublons
+    const btnRemoveDuplicates = document.getElementById("btn-remove-duplicates"); // Bouton pour supprimer les doublons
 
     // MAIN + FILTRES + TRI
     const listSection = document.getElementById("list-section");
@@ -2610,9 +2881,7 @@
     const sortSelect = document.getElementById("sort-select"); // Sélecteur de tri ajouté
 
     // RECHERCHE
-    const searchInput = document.querySelector(
-      ".search-container .search-input"
-    );
+    const searchInput = document.querySelector('.search-container .search-input');
     const suggestions = document.getElementById("suggestions"); // Élément ajouté
 
     // IMPORT/EXPORT
@@ -2652,9 +2921,7 @@
       btnRemoveDuplicates.addEventListener("click", removeDuplicates);
 
       // Boutons Vue Minimaliste
-      document
-        .getElementById("toggle-minimal-view-btn")
-        .addEventListener("click", toggleMinimalView);
+      document.getElementById("toggle-minimal-view-btn").addEventListener("click", toggleMinimalView);
 
       // Sélecteur de tri
       sortSelect.addEventListener("change", () => {
@@ -2667,9 +2934,7 @@
       });
 
       // Bouton "Ajouter"
-      document
-        .getElementById("btn-open-modal")
-        .addEventListener("click", openModalForAdd);
+      document.getElementById("btn-open-modal").addEventListener("click", openModalForAdd);
 
       renderList(getCurrentFilter());
       initDragAndDrop();
@@ -2690,7 +2955,7 @@
         }
         welcomeScreen.classList.add("hidden");
         // Return focus to the main content
-        document.querySelector(".top-nav").focus();
+        document.querySelector('.top-nav').focus();
       });
     };
 
@@ -2699,7 +2964,7 @@
      ****************************************************/
     const populateFilterDropdown = () => {
       filterSelect.innerHTML = '<option value="all">Tous</option>';
-      categories.forEach((cat) => {
+      categories.forEach(cat => {
         const option = document.createElement("option");
         option.value = cat;
         option.textContent = cat;
@@ -2711,9 +2976,7 @@
      *               CAT MODAL MANAGER                  *
      ****************************************************/
     const initCategoryManager = () => {
-      document
-        .getElementById("btn-manage-cats")
-        .addEventListener("click", openCatModal);
+      document.getElementById("btn-manage-cats").addEventListener("click", openCatModal);
       catModalOverlay.addEventListener("click", closeCatModalFn);
       closeCatModal.addEventListener("click", closeCatModalFn);
 
@@ -2752,7 +3015,7 @@
     };
     const renderCatList = () => {
       catListUl.innerHTML = "";
-      categories.forEach((cat) => {
+      categories.forEach(cat => {
         const li = document.createElement("li");
         const span = document.createElement("span");
         span.textContent = cat;
@@ -2812,7 +3075,7 @@
         return;
       }
       itemTypeSelect.disabled = false;
-      categories.forEach((cat) => {
+      categories.forEach(cat => {
         const opt = document.createElement("option");
         opt.value = cat;
         opt.textContent = cat;
@@ -2889,12 +3152,7 @@
       const startDate = itemStartDate.value || "";
       const endDate = itemEndDate.value || "";
       const tagsRaw = itemTagsInput.value.trim();
-      const tags = tagsRaw
-        ? tagsRaw
-          .split(",")
-          .map((t) => t.trim())
-          .filter(Boolean)
-        : [];
+      const tags = tagsRaw ? tagsRaw.split(",").map(t => t.trim()).filter(Boolean) : [];
 
       if (!type || !title) {
         showToast("Catégorie et Titre sont obligatoires.", "warning");
@@ -2918,7 +3176,7 @@
           startDate,
           endDate,
           tags,
-          updatedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
         };
         addItem(newItem);
       } else {
@@ -2938,7 +3196,7 @@
           startDate,
           endDate,
           tags,
-          updatedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
         };
         updateItem(updatedItem);
       }
@@ -2951,9 +3209,7 @@
      ****************************************************/
     // Fonction pour rechercher l'image via l'API Jikan
     const findCoverImage = async (title) => {
-      const apiUrl = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(
-        title
-      )}&limit=1`;
+      const apiUrl = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(title)}&limit=1`;
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -2965,9 +3221,7 @@
           return anime.images.jpg.image_url; // URL de l'image de couverture
         } else {
           // Si aucun anime n'est trouvé, tenter de chercher un manga
-          const mangaUrl = `https://api.jikan.moe/v4/manga?q=${encodeURIComponent(
-            title
-          )}&limit=1`;
+          const mangaUrl = `https://api.jikan.moe/v4/manga?q=${encodeURIComponent(title)}&limit=1`;
           const mangaResponse = await fetch(mangaUrl);
           if (!mangaResponse.ok) {
             throw new Error(`Erreur réseau: ${mangaResponse.status}`);
@@ -2991,10 +3245,7 @@
     findCoverBtn.addEventListener("click", async () => {
       const title = itemTitleInput.value.trim();
       if (!title) {
-        showToast(
-          "Veuillez entrer un titre avant de rechercher une image.",
-          "warning"
-        );
+        showToast("Veuillez entrer un titre avant de rechercher une image.", "warning");
         itemTitleInput.focus();
         return;
       }
@@ -3014,6 +3265,7 @@
       findCoverBtn.disabled = false;
       findCoverBtn.textContent = "🔍 Image";
     });
+
 
     // Afficher un aperçu de l'image de couverture lorsque l'URL est saisie manuellement
     itemCoverInput.addEventListener("input", () => {
@@ -3052,7 +3304,7 @@
         listSection.appendChild(p);
         return;
       }
-      items.forEach((it) => {
+      items.forEach(it => {
         const card = createFlipCard(it);
         listSection.appendChild(card);
       });
@@ -3081,7 +3333,7 @@
 
       const flipBtnFront = document.createElement("button");
       flipBtnFront.className = "flip-btn-front hidden-in-minimalist";
-      flipBtnFront.innerHTML = "&#x21bb;"; // Symbole de rotation
+      flipBtnFront.innerHTML = '&#x21bb;'; // Symbole de rotation
       flipBtnFront.title = "Flip";
       flipBtnFront.addEventListener("click", () => {
         flipCardInner.classList.add("flipped");
@@ -3116,18 +3368,13 @@
       }
 
       const statusSpan = document.createElement("span");
-      statusSpan.className = `status-label ${statusClass(
-        item.status
-      )} hidden-in-minimalist`;
+      statusSpan.className = `status-label ${statusClass(item.status)} hidden-in-minimalist`;
       statusSpan.textContent = statusToLabel(item.status);
       frontTop.appendChild(statusSpan);
 
       const subinfo = document.createElement("div");
       subinfo.className = "subinfo-front hidden-in-minimalist";
-      const durationDays = calculateDurationDays(
-        item.startDate,
-        item.endDate
-      );
+      const durationDays = calculateDurationDays(item.startDate, item.endDate);
       if (durationDays) {
         subinfo.textContent = `${item.type} | Durée: ${durationDays} j.`;
       } else {
@@ -3148,7 +3395,7 @@
       });
       favContainer.appendChild(favCheck);
       const favLabel = document.createElement("span");
-      favLabel.className = "hidden-in-minimalist";
+      favLabel.className = "hidden-in-minimalist"
       favLabel.textContent = "❤️";
       favContainer.appendChild(favLabel);
 
@@ -3190,7 +3437,7 @@
 
       const minusBtn = document.createElement("button");
       minusBtn.className = "chap-btn";
-      minusBtn.innerHTML = "-"; // Symbole moins
+      minusBtn.innerHTML = '-'; // Symbole moins
       minusBtn.title = "Diminuer";
       minusBtn.addEventListener("click", (e) => {
         e.stopPropagation(); // Empêche le flip
@@ -3210,7 +3457,7 @@
 
       const plusBtn = document.createElement("button");
       plusBtn.className = "chap-btn";
-      plusBtn.innerHTML = "+"; // Symbole plus
+      plusBtn.innerHTML = '+'; // Symbole plus
       plusBtn.title = "Augmenter";
       plusBtn.addEventListener("click", (e) => {
         e.stopPropagation(); // Empêche le flip
@@ -3228,7 +3475,7 @@
 
       const flipBtnBack = document.createElement("button");
       flipBtnBack.className = "flip-btn-back";
-      flipBtnBack.innerHTML = "&#x21bb;"; // Symbole de rotation
+      flipBtnBack.innerHTML = '&#x21bb;'; // Symbole de rotation
       flipBtnBack.title = "Flip";
       flipBtnBack.addEventListener("click", () => {
         flipCardInner.classList.remove("flipped");
@@ -3248,9 +3495,7 @@
       `;
       // Affiche les tags s'il y en a
       if (item.tags && item.tags.length > 0) {
-        infoDiv.innerHTML += `<p><strong>Tags :</strong> ${item.tags.join(
-          ", "
-        )}</p>`;
+        infoDiv.innerHTML += `<p><strong>Tags :</strong> ${item.tags.join(", ")}</p>`;
       }
       back.appendChild(infoDiv);
 
@@ -3276,7 +3521,7 @@
 
       const editBtn = document.createElement("button");
       editBtn.className = "edit-btn";
-      editBtn.innerHTML = "&#x270E;"; // Symbole de crayon
+      editBtn.innerHTML = '&#x270E;'; // Symbole de crayon
       editBtn.setAttribute("aria-label", `Modifier ${item.title}`);
       editBtn.addEventListener("click", (e) => {
         e.stopPropagation(); // Empêche le flip
@@ -3286,7 +3531,7 @@
 
       const delBtn = document.createElement("button");
       delBtn.className = "delete-btn";
-      delBtn.innerHTML = "&#x1F5D1;"; // Symbole de poubelle
+      delBtn.innerHTML = '&#x1F5D1;'; // Symbole de poubelle
       delBtn.setAttribute("aria-label", `Supprimer ${item.title}`);
       delBtn.addEventListener("click", (e) => {
         e.stopPropagation(); // Empêche le flip
@@ -3307,33 +3552,25 @@
     const updateChapLabel = (id, newChapter) => {
       const chapLabel = document.getElementById(`chap-label-${id}`);
       if (chapLabel) {
-        const item = myList.find((it) => it.id === id);
+        const item = myList.find(it => it.id === id);
         chapLabel.textContent = `Ch/Ep : ${newChapter}`;
       }
     };
 
     const statusToLabel = (st) => {
       switch (st) {
-        case "en-cours":
-          return "En cours";
-        case "termine":
-          return "Terminé";
-        case "pause":
-          return "En pause";
-        default:
-          return st;
+        case "en-cours": return "En cours";
+        case "termine": return "Terminé";
+        case "pause": return "En pause";
+        default: return st;
       }
     };
     const statusClass = (st) => {
       switch (st) {
-        case "en-cours":
-          return "en-cours";
-        case "termine":
-          return "termine";
-        case "pause":
-          return "pause";
-        default:
-          return "";
+        case "en-cours": return "en-cours";
+        case "termine": return "termine";
+        case "pause": return "pause";
+        default: return "";
       }
     };
     const createStars = (score) => {
@@ -3387,13 +3624,11 @@
       }
     };
     const reorderList = () => {
-      const cardElems = Array.from(
-        listSection.querySelectorAll(".flip-card")
-      );
+      const cardElems = Array.from(listSection.querySelectorAll(".flip-card"));
       const newList = [];
-      cardElems.forEach((card) => {
+      cardElems.forEach(card => {
         const id = card.dataset.itemId;
-        const item = myList.find((it) => it.id === id);
+        const item = myList.find(it => it.id === id);
         if (item) {
           newList.push(item);
         }
@@ -3410,10 +3645,7 @@
       searchInput.addEventListener("input", onSearchInput);
       searchInput.addEventListener("keydown", handleSearchKeyDown);
       document.addEventListener("click", (e) => {
-        if (
-          !searchInput.contains(e.target) &&
-          !suggestions.contains(e.target)
-        ) {
+        if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
           suggestions.classList.add("hidden");
           searchInput.setAttribute("aria-expanded", "false");
         }
@@ -3427,11 +3659,10 @@
         renderList(getCurrentFilter());
         return;
       }
-      const results = filterBySearch(query).map((it) => it.title);
+      const results = filterBySearch(query).map(it => it.title);
       if (results.length === 0) {
         suggestions.classList.add("hidden");
-        listSection.innerHTML =
-          '<p class="empty-message">Aucun titre correspondant.</p>';
+        listSection.innerHTML = '<p class="empty-message">Aucun titre correspondant.</p>';
         searchInput.setAttribute("aria-expanded", "false");
         return;
       }
@@ -3446,9 +3677,7 @@
           searchInput.value = title;
           suggestions.classList.add("hidden");
           searchInput.setAttribute("aria-expanded", "false");
-          const item = myList.find(
-            (it) => it.title.toLowerCase() === title.toLowerCase()
-          );
+          const item = myList.find(it => it.title.toLowerCase() === title.toLowerCase());
           if (item) {
             listSection.innerHTML = "";
             listSection.appendChild(createFlipCard(item));
@@ -3511,12 +3740,12 @@
     const generateColorArray = (num) => {
       const colors = [];
       const baseColors = [
-        "rgba(255, 99, 132, 0.6)", // Rouge
-        "rgba(54, 162, 235, 0.6)", // Bleu
-        "rgba(255, 206, 86, 0.6)", // Jaune
-        "rgba(75, 192, 192, 0.6)", // Vert
-        "rgba(153, 102, 255, 0.6)", // Violet
-        "rgba(255, 159, 64, 0.6)", // Orange
+        'rgba(255, 99, 132, 0.6)',   // Rouge
+        'rgba(54, 162, 235, 0.6)',   // Bleu
+        'rgba(255, 206, 86, 0.6)',   // Jaune
+        'rgba(75, 192, 192, 0.6)',   // Vert
+        'rgba(153, 102, 255, 0.6)',  // Violet
+        'rgba(255, 159, 64, 0.6)'    // Orange
       ];
       for (let i = 0; i < num; i++) {
         colors.push(baseColors[i % baseColors.length]);
@@ -3524,16 +3753,13 @@
       return colors;
     };
 
+
     const initStatsModal = () => {
-      document
-        .getElementById("btn-show-stats")
-        .addEventListener("click", openStatsModal);
+      document.getElementById("btn-show-stats").addEventListener("click", openStatsModal);
       statsModalOverlay.addEventListener("click", closeStatsModalFn);
       closeStatsModal.addEventListener("click", closeStatsModalFn);
       // Ajout de l'écouteur pour supprimer les doublons
-      document
-        .getElementById("btn-remove-duplicates")
-        .addEventListener("click", removeDuplicates);
+      document.getElementById("btn-remove-duplicates").addEventListener("click", removeDuplicates);
     };
     const openStatsModal = () => {
       updateStats();
@@ -3553,16 +3779,14 @@
       if (total === 0) {
         statsAverage.textContent = "0";
       } else {
-        const avg = (
-          myList.reduce((acc, it) => acc + (it.score || 0), 0) / total
-        ).toFixed(1);
+        const avg = (myList.reduce((acc, it) => acc + (it.score || 0), 0) / total).toFixed(1);
         statsAverage.textContent = avg;
       }
 
       // 2) Par Catégorie
       const countsByCat = {};
-      categories.forEach((cat) => (countsByCat[cat] = 0));
-      myList.forEach((it) => {
+      categories.forEach(cat => countsByCat[cat] = 0);
+      myList.forEach(it => {
         if (!countsByCat[it.type]) countsByCat[it.type] = 0;
         countsByCat[it.type]++;
       });
@@ -3572,95 +3796,90 @@
 
       if (chartCat) chartCat.destroy(); // Détruire l'ancien graphique si existant
 
-      chartCat = new Chart(document.getElementById("stats-chart-cat"), {
-        type: "bar",
+      chartCat = new Chart(document.getElementById('stats-chart-cat'), {
+        type: 'bar',
         data: {
           labels: labelsCat,
-          datasets: [
-            {
-              label: "Nombre d'éléments",
-              data: dataCat,
-              backgroundColor: "rgba(63, 81, 181, 0.6)", // Couleur Indigo avec transparence
-              borderColor: "rgba(63, 81, 181, 1)",
-              borderWidth: 1,
-            },
-          ],
+          datasets: [{
+            label: 'Nombre d\'éléments',
+            data: dataCat,
+            backgroundColor: 'rgba(63, 81, 181, 0.6)', // Couleur Indigo avec transparence
+            borderColor: 'rgba(63, 81, 181, 1)',
+            borderWidth: 1
+          }]
         },
         options: {
           responsive: true,
           plugins: {
             legend: { display: false },
-            title: { display: false },
+            title: { display: false }
           },
           scales: {
-            y: { beginAtZero: true },
-          },
-        },
+            y: { beginAtZero: true }
+          }
+        }
       });
 
       // 3) Par Statut
       const allStatus = ["en-cours", "termine", "pause"];
       const countsByStatus = { "en-cours": 0, termine: 0, pause: 0 };
-      myList.forEach((it) => {
+      myList.forEach(it => {
         if (countsByStatus[it.status] !== undefined) {
           countsByStatus[it.status]++;
         }
       });
 
-      const labelsStatus = allStatus.map((st) => statusToLabel(st));
-      const dataStatus = allStatus.map((st) => countsByStatus[st]);
+      const labelsStatus = allStatus.map(st => statusToLabel(st));
+      const dataStatus = allStatus.map(st => countsByStatus[st]);
 
       if (chartStatus) chartStatus.destroy();
 
-      chartStatus = new Chart(document.getElementById("stats-chart-status"), {
-        type: "pie",
+      chartStatus = new Chart(document.getElementById('stats-chart-status'), {
+        type: 'pie',
         data: {
           labels: labelsStatus,
-          datasets: [
-            {
-              data: dataStatus,
-              backgroundColor: [
-                "rgba(56, 142, 60, 0.6)", // Vert pour "En cours"
-                "rgba(211, 47, 47, 0.6)", // Rouge pour "Terminé"
-                "rgba(251, 192, 45, 0.6)", // Jaune pour "En pause"
-              ],
-              borderColor: [
-                "rgba(56, 142, 60, 1)",
-                "rgba(211, 47, 47, 1)",
-                "rgba(251, 192, 45, 1)",
-              ],
-              borderWidth: 1,
-            },
-          ],
+          datasets: [{
+            data: dataStatus,
+            backgroundColor: [
+              'rgba(56, 142, 60, 0.6)',   // Vert pour "En cours"
+              'rgba(211, 47, 47, 0.6)',   // Rouge pour "Terminé"
+              'rgba(251, 192, 45, 0.6)'    // Jaune pour "En pause"
+            ],
+            borderColor: [
+              'rgba(56, 142, 60, 1)',
+              'rgba(211, 47, 47, 1)',
+              'rgba(251, 192, 45, 1)'
+            ],
+            borderWidth: 1
+          }]
         },
         options: {
           responsive: true,
           plugins: {
-            legend: { position: "bottom" },
-            title: { display: false },
-          },
-        },
+            legend: { position: 'bottom' },
+            title: { display: false }
+          }
+        }
       });
 
       // 4) Item le plus avancé
       if (myList.length > 0) {
         let maxItem = myList[0];
-        myList.forEach((it) => {
+        myList.forEach(it => {
           if (calculateProgress(it) > calculateProgress(maxItem)) {
             maxItem = it;
           }
         });
-        statsMostAdvanced.textContent = `${maxItem.title
-          } (${calculateProgress(maxItem)}% complété)`;
+        statsMostAdvanced.textContent = `${maxItem.title} (${calculateProgress(maxItem)}% complété)`;
       } else {
         statsMostAdvanced.textContent = "Aucun item";
       }
 
       // 5) Par Tags
       const tagCounts = {};
-      myList.forEach((it) => {
+      myList.forEach(it => {
         if (it.tags && it.tags.length > 0) {
-          it.tags.forEach((tag) => {
+          it.tags.forEach(tag => {
             if (!tagCounts[tag]) tagCounts[tag] = 0;
             tagCounts[tag]++;
           });
@@ -3672,29 +3891,28 @@
 
       if (chartTags) chartTags.destroy();
 
-      chartTags = new Chart(document.getElementById("stats-chart-tags"), {
-        type: "doughnut",
+      chartTags = new Chart(document.getElementById('stats-chart-tags'), {
+        type: 'doughnut',
         data: {
           labels: labelsTags,
-          datasets: [
-            {
-              label: "Nombre d'éléments par Tag",
-              data: dataTags,
-              backgroundColor: generateColorArray(labelsTags.length),
-              borderColor: "rgba(255, 255, 255, 1)",
-              borderWidth: 1,
-            },
-          ],
+          datasets: [{
+            label: 'Nombre d\'éléments par Tag',
+            data: dataTags,
+            backgroundColor: generateColorArray(labelsTags.length),
+            borderColor: 'rgba(255, 255, 255, 1)',
+            borderWidth: 1
+          }]
         },
         options: {
           responsive: true,
           plugins: {
-            legend: { position: "bottom" },
-            title: { display: false },
-          },
-        },
+            legend: { position: 'bottom' },
+            title: { display: false }
+          }
+        }
       });
     };
+
 
     /****************************************************
      *                  TOAST NOTIFICATIONS             *
@@ -3738,7 +3956,7 @@
       let duplicatesCount = 0;
       const uniqueItems = {};
 
-      myList = myList.filter((item) => {
+      myList = myList.filter(item => {
         const key = `${item.type.toLowerCase()}-${item.title.toLowerCase()}`;
         if (uniqueItems[key]) {
           duplicatesCount++;
@@ -3771,28 +3989,26 @@
       hamburger.classList.toggle("active");
     };
 
-    const mangaAutocomplete = document.getElementById("manga-autocomplete");
-    const coverPreview = document.getElementById("cover-preview");
+    const mangaAutocomplete = document.getElementById('manga-autocomplete');
+    const coverPreview = document.getElementById('cover-preview');
+
 
     // Fonction pour récupérer les mangas via l'API Jikan
     async function fetchMangaSuggestions(query) {
-      let apiUrl = "";
+
+
+      let apiUrl = '';
       const itemType = itemTypeSelect.value.toLowerCase();
 
-      if (itemType === "light novel") {
+      if (itemType === 'light novel') {
         // Les light novels sont généralement classés sous "manga" avec le type "novel"
-        apiUrl = `https://api.jikan.moe/v4/manga?q=${encodeURIComponent(
-          query
-        )}&limit=6`;
+        apiUrl = `https://api.jikan.moe/v4/manga?q=${encodeURIComponent(query)}&limit=6`;
       }
-      if (itemType === "manhwa/manhua") {
-        apiUrl = `https://api.jikan.moe/v4/manga?q=${encodeURIComponent(
-          query
-        )}&limit=6`;
-      } else {
-        apiUrl = `https://api.jikan.moe/v4/${itemType}?q=${encodeURIComponent(
-          query
-        )}&limit=6`;
+      if (itemType === 'manhwa/manhua') {
+        apiUrl = `https://api.jikan.moe/v4/manga?q=${encodeURIComponent(query)}&limit=6`;
+      }
+      else {
+        apiUrl = `https://api.jikan.moe/v4/${itemType}?q=${encodeURIComponent(query)}&limit=6`;
       }
 
       try {
@@ -3801,33 +4017,33 @@
         const data = await response.json();
         return data.data;
       } catch (error) {
-        console.error("Erreur de récupération des mangas:", error);
+        console.error('Erreur de récupération des mangas:', error);
         return [];
       }
     }
 
     // Fonction pour afficher les suggestions
     function showAutocompleteSuggestions(items) {
-      mangaAutocomplete.innerHTML = "";
+      mangaAutocomplete.innerHTML = '';
       if (items.length === 0) {
-        mangaAutocomplete.style.display = "none";
+        mangaAutocomplete.style.display = 'none';
         return;
       }
 
-      items.forEach((item) => {
-        const suggestionDiv = document.createElement("div");
-        suggestionDiv.className = "autocomplete-item";
+      items.forEach(item => {
+        const suggestionDiv = document.createElement('div');
+        suggestionDiv.className = 'autocomplete-item';
         suggestionDiv.innerHTML = `
                 <img src="${item.images.jpg.image_url}" alt="${item.title}" />
                 <span>${item.title}</span>
             `;
-        suggestionDiv.addEventListener("click", () => {
+        suggestionDiv.addEventListener('click', () => {
           selectManga(item);
         });
         mangaAutocomplete.appendChild(suggestionDiv);
       });
 
-      mangaAutocomplete.style.display = "block";
+      mangaAutocomplete.style.display = 'block';
     }
 
     // Fonction pour gérer la sélection d'un manga
@@ -3836,11 +4052,11 @@
       itemCoverInput.value = manga.images.jpg.image_url;
       coverPreview.src = manga.images.jpg.image_url;
       coverPreview.alt = `Couverture de ${manga.title}`;
-      mangaAutocomplete.style.display = "none";
+      mangaAutocomplete.style.display = 'none';
     }
 
     // Gestion de la saisie utilisateur
-    itemTitleInput.addEventListener("input", async () => {
+    itemTitleInput.addEventListener('input', async () => {
       const query = itemTitleInput.value.trim();
       // if (query.length < 2) {
       //   mangaAutocomplete.style.display = 'none';
@@ -3851,25 +4067,23 @@
     });
 
     // Fermer l'autocomplétion en cliquant à l'extérieur
-    document.addEventListener("click", (e) => {
-      if (
-        !mangaAutocomplete.contains(e.target) &&
-        e.target !== itemTitleInput
-      ) {
-        mangaAutocomplete.style.display = "none";
+    document.addEventListener('click', (e) => {
+      if (!mangaAutocomplete.contains(e.target) && e.target !== itemTitleInput) {
+        mangaAutocomplete.style.display = 'none';
       }
     });
 
     // Mise à jour manuelle de l'aperçu de la couverture via le champ URL
-    itemCoverInput.addEventListener("input", () => {
+    itemCoverInput.addEventListener('input', () => {
       const url = itemCoverInput.value.trim();
       if (url) {
         coverPreview.src = url;
         coverPreview.alt = "Aperçu de la couverture";
       } else {
-        coverPreview.src = "";
+        coverPreview.src = '';
       }
     });
+
   </script>
 </body>
 
